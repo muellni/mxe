@@ -109,6 +109,7 @@ define $(PKG)_BUILD
     $(SED) -i 's,set(_Qt5Core_LIB_DEPENDENCIES \"\"),set(_Qt5Core_LIB_DEPENDENCIES \"ole32;uuid;ws2_32;advapi32;shell32;user32;kernel32;mpr;version;winmm;z;pcre2-16;netapi32;userenv;zstd\"),g' '$(PREFIX)/$(TARGET)/qt5/lib/cmake/Qt5Core/Qt5CoreConfig.cmake'
     $(SED) -i 's,set(_Qt5Gui_LIB_DEPENDENCIES \"Qt5::Core\"),set(_Qt5Gui_LIB_DEPENDENCIES \"Qt5::Core;ole32;uuid;ws2_32;advapi32;shell32;user32;kernel32;mpr;version;winmm;z;pcre2-16;png16;harfbuzz;z\"),g' '$(PREFIX)/$(TARGET)/qt5/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake'
     $(SED) -i 's,set(_Qt5Widgets_LIB_DEPENDENCIES \"Qt5::Gui;Qt5::Core\"),set(_Qt5Widgets_LIB_DEPENDENCIES \"Qt5::Gui;Qt5::Core;gdi32;comdlg32;oleaut32;imm32;opengl32;png16;harfbuzz;ole32;uuid;ws2_32;advapi32;shell32;user32;kernel32;mpr;version;winmm;z;pcre2-16;shell32;uxtheme;dwmapi\"),g' '$(PREFIX)/$(TARGET)/qt5/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake'
+    $(SED) -i 's,set(_Qt5Network_LIB_DEPENDENCIES \"Qt5::Core\"),set(_Qt5Network_LIB_DEPENDENCIES \"Qt5::Core;ssl;crypto;crypt32;ws2_32;iphlpapi\"),g' '$(PREFIX)/$(TARGET)/qt5/lib/cmake/Qt5Network/Qt5NetworkConfig.cmake'
 endef
 
 
