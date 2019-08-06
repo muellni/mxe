@@ -4,11 +4,11 @@ PKG             := qtifw
 $(PKG)_WEBSITE  := https://doc.qt.io/qtinstallerframework/index.html
 $(PKG)_DESCR    := Qt Installer Framework
 $(PKG)_IGNORE   :=
-$(PKG)_VERSION  := 3.0.4
-$(PKG)_CHECKSUM := a4ecafc37086f96a833463214f873caac977199e64f0b1453aa49bdd6f24f32e
-$(PKG)_SUBDIR    = qt-installer-framework-opensource-src-$($(PKG)_VERSION)
-$(PKG)_FILE     := $($(PKG)_SUBDIR).zip
-$(PKG)_URL      := https://download.qt.io/official_releases/qt-installer-framework/$($(PKG)_VERSION)/$($(PKG)_FILE)
+$(PKG)_VERSION  := 3.1.1
+$(PKG)_CHECKSUM := 59b5370aaf521bb1a34a025ac451bb3bbbfa519ee271156aba9d42ee1132d1b1
+$(PKG)_SUBDIR    = 
+$(PKG)_FILE     := qtifw-$($(PKG)_VERSION).tar
+$(PKG)_URL      := https://download.qt.io/official_releases/qt-installer-framework/$($(PKG)_VERSION)/qt-installer-framework-opensource-src-$($(PKG)_VERSION).tar.gz
 $(PKG)_TARGETS  := $(BUILD) $(MXE_TARGETS)
 
 $(PKG)_DEPS_$(BUILD) := cc qtbase qttools
