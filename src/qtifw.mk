@@ -6,8 +6,8 @@ $(PKG)_DESCR    := Qt Installer Framework
 $(PKG)_IGNORE   :=
 $(PKG)_VERSION  := 3.1.1
 $(PKG)_CHECKSUM := 59b5370aaf521bb1a34a025ac451bb3bbbfa519ee271156aba9d42ee1132d1b1
-$(PKG)_SUBDIR    = 
-$(PKG)_FILE     := qtifw-$($(PKG)_VERSION).tar
+# the archive is in fact only a tar file, not a tar.gz
+$(PKG)_FILE     := qtifw-$($(PKG)_VERSION).tar  
 $(PKG)_URL      := https://download.qt.io/official_releases/qt-installer-framework/$($(PKG)_VERSION)/qt-installer-framework-opensource-src-$($(PKG)_VERSION).tar.gz
 $(PKG)_TARGETS  := $(BUILD) $(MXE_TARGETS)
 
@@ -28,4 +28,7 @@ define $(PKG)_BUILD_STATIC
     cd '$(1)' && '$(PREFIX)/$(TARGET)/qt5/bin/qmake'
     $(MAKE) -C '$(1)' -j '$(JOBS)' || $(MAKE) -C '$(1)' -j  1
     $(MAKE) -C '$(1)' -j 1 install
+
+    # build the tutorial installer
+    cd '$(1)/examples/tutorial' '$(PREFIX)/bin/$(BUILD)-binarycreator' -c config/config.xml -p packages -t $(PREFIX)/$(TARGET)/qt5/bin/installerbase.exe $(PREFIX)/$(TARGET)/bin/test-$(PKG)-tutorialinstaller.exe
 endef
